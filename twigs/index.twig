@@ -1,0 +1,62 @@
+{% extends 'page.twig' %}
+
+{% block onload %}
+    $('#alert').on('click', function(){
+        bootbox.alert('Hello World')
+    })
+{% endblock onload %}
+
+
+
+
+
+{% block header %}
+    <section class="col-md-12">
+
+    </section>
+{% endblock header %}
+
+{% block main %}
+
+    {% include 'search.twig' %}
+    <br>
+    {#<section class="row">#}
+        {#<aside class="col">#}
+            {#<p>Left</p>#}
+        {#</aside>#}
+        {#<article class="col-md-8">#}
+            {#<div class="jumbotron">#}
+                {#This is the middle column#}
+            {#</div>#}
+            {#<button id="alert" class="btn btn-large btn-info" type="button">Alert</button>#}
+        {#</article>#}
+        {#<aside id="rightbar" class="col">#}
+            {#<p>Right</p>#}
+        {#</aside>#}
+    {#</section>#}
+
+
+
+    {% if  context.user.hasrole('Site','ModuleLeader')!=null  %}
+        <div class="container">
+        <div class=" row border border-primary">
+         <section class="col-xs-6 col-lg-6 col-md-6">
+        {% include 'upload.twig'  %}
+         </section>
+          <section class="col-xs-6 col-lg-6 col-md-6">
+        {% include 'message.twig' %}
+          </section>
+        </div>
+        </div>
+        <br>
+    {% endif %}
+
+{% endblock main %}
+
+
+
+{% block footer %}
+    <section class="container border border-primary">
+        <p class="cntr">Footer</p>
+    </section>
+{% endblock footer %}

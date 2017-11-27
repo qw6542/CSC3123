@@ -1,0 +1,90 @@
+{% extends 'page.twig' %}
+
+{% import 'form.twig' as f %}
+
+
+
+{% block title %}
+  {{   context.user.login }}
+{% endblock title %}
+
+
+
+
+{% block setup %}
+{# Any javascript you need that is NOT run on load goes in this block. NB you don't need <script></script> tags  here #}
+{% endblock setup %}
+
+{% block onload %}
+{# Any javascript you need that MUST run on load goes in this block. NB you don't need <script></script> tags  here #}
+{% endblock onload %}
+
+
+
+{% block header %}
+    <article class="col-md-12">
+        <h1 class="cntr"> Welcome  {{ context.user.login }} </h1>
+    </article>
+{% endblock header %}
+
+{% block main %}
+
+
+
+
+        <section class="row" id="Email">
+             <div class=" col-md-12 " >
+
+               {% if updated is defined %}
+                <p class="bg-success">updated  </p>
+                {% endif %}
+              <form action="#" method="post" >
+
+                  {{ f.email( {label:'Email',name:'email',value:context.user.email   } ) }}
+
+                  <button type="submit" class="btn btn-primary btn-lg">Update</button>
+              </form>
+
+
+             </div>
+
+        </section>
+
+
+
+    {#<section class="row" id="paper">#}
+        {#<div class=" col-md-12 " >#}
+
+            {#{% if uploaded is defined %}#}
+                {#<p class="bg-success">Uploaded  </p>#}
+            {#{% endif %}#}
+
+            {#<form action="#" method="post" >#}
+                {#{{ f.input('file','chooose' ) }}#}
+                {#<button type="submit" class="btn btn-primary btn-lg">Upload</button>#}
+            {#</form>#}
+
+
+        {#</div>#}
+
+
+    </section>
+
+
+
+
+
+
+
+
+{% endblock main %}
+
+
+
+
+{% block pagefooter %}
+
+{% endblock pagefooter %}
+
+
+
